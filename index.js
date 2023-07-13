@@ -1,14 +1,10 @@
 // // DELETE THE CLIENT'S NAME
 function deleteClientName(emailBody) {
-  let salutationRegex = /Sehr geehrter Herr[^,\n]*/;
-  emailBody = emailBody.replace(salutationRegex, '');
-
-  let greetingRegex = /Mit freundlichen Grüßen[^,\n]*/;
-  emailBody = emailBody.replace(greetingRegex, '');
+  let salutation = /Sehr geehrter Herr[^,\n]*/;
+  emailBody = emailBody.replace(salutation, '');
 
   if (
-    emailBody.includes("Sehr geehrter Herr") ||
-    emailBody.includes("Mit freundlichen Grüßen")
+    emailBody.includes("Sehr geehrter Herr") 
   ) {
     throw new Error("Client name not properly removed from email body.");
   }
@@ -17,7 +13,7 @@ function deleteClientName(emailBody) {
 }
 debugger
 const emailBody =
-"Sehr geehrter Herr Qampi,\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\n\nMit freundlichen Grüßen,\nBuhle Qampi";
+"Sehr geehrter Herr Krause,\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
 try {
   const newEmailBody = deleteClientName(emailBody);
